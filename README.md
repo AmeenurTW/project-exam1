@@ -14,4 +14,15 @@ This website is a registration site for becoming a member of Waqaf archery. Its 
             
         -   mysql.connector.django  [readmore](https://dev.mysql.com/doc/connector-python/en/connector-python-django-backend.html)
 
+# Wep page
+Feed page "/"
 
+You can read recommendations and details about travel in your interested province.
+
+Add your recommend "/addnew"
+
+You can share recommendations about travel based on your ideas.
+
+About "/about"
+
+Overview about this web and contact
