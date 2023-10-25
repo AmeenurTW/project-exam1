@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+  
+{% block title %}Employee Records{% endblock title %}
+  
+{% block content %}
+    <div class="col-md-12">
+        <span><a href="/addnew" class="btn btn-primary">Recommend your Province</a></span>  
+        <span><a href="{% url 'addnew' %}" class="btn btn-primary">addnew</a></span>  
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+                <thead>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Mojor</th>
+                    <th>contact</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}  
+                        <tr data-id="{{ employee.id }}">
+                            <td><input type="checkbox" class="checkthis" /></td>
+                            <td>{{ employee.id }}</td>  
+                            <td>{{ employee.name }}</td>  {# Corrected a typo in 'title' #}
+                            <td>{{ employee.age }}</td>  
+                            <td>{{ employee.mojor }}</td>
+                            <td>{{ employee.contact }}</td>    
+                            <td><a href="/edit/{{ employee.id }}" class="btn btn-primary edit-button">Edit</a></td>
+                            <td><a href="/delete/{{ employee.id }}" class="btn btn-danger delete-button">Delete</a></td>  
+                        </tr>  
+                    {% endfor %} 
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".edit-button").click(function () {
+                var row = $(this).closest("tr");
+                var employeeId = row.data("id");
+
+            });
+
+
+            $(".delete-button").click(function () {
+                var row = $(this).closest("tr");
+                var employeeId = row.data("id");
+
+            });
+        });
+    </script>
+{% endblock content %}

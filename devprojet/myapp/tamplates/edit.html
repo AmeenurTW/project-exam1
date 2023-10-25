@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+  
+{% block title %}Add New Employee Records{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/update/{{employee.id}}">  
+        {% csrf_token %}  
+        <div class="container">   
+            <div class="col-12">  
+                <h3>Update Details</h3>  
+            </div> 
+            <div class="mb-3"> 
+                <label>ID:</label>  
+                <input type="text" class="form-control" name="id" id="id_id"  value="{{ employee.id }}"/>    
+            </div> 
+            <div class="mb-3"> 
+                <label>name:</label>  
+                <input type="text" class="form-control" name="name" id="id_name"  value="{{ employee.name }}" />  
+            </div> 
+            <div class="mb-3"> 
+                <label>Age:</label>  
+                <input type="number" class="form-control" name="age" id="id_age" value="{{ employee.age }}" />  
+            </div> 
+            <div class="mb-3"> 
+                <label>Mojor:</label>  
+                <input type="text" class="form-control" name="mojor" id="id_mojor"  value="{{ employee.mojor }}" />  
+            </div>
+            <div class="mb-3"> 
+                <label>Contact:</label>  
+                <input type="number" class="form-control" name="contact" id="id_contact"  value="{{ employee.contact }}" />  
+            </div>  
+            <div class="mb-3"> 
+                <button type="submit" class="btn btn-success btn-lg">Update</button>  
+            </div> 
+         </div>  
+    </form>  
+{% endblock content %}   
